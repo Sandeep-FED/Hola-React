@@ -1,0 +1,34 @@
+{
+  "name": "react-ignite",
+  "version": "1.0.0",
+  "description": "This is the starter react project built from scratch",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sandeep-FED/Hola-React.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Sandeep P S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sandeep-FED/Hola-React/issues"
+  },
+  "homepage": "https://github.com/Sandeep-FED/Hola-React#readme",
+  "devDependencies": {
+    "parcel": "^2.13.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
+}

@@ -1,0 +1,8 @@
+# Ignore the 'dist' directory, which typically contains the build output files
+dist
+
+# Ignore the 'node_modules' directory, which contains all the npm packages
+node_modules
+
+# Ignore the '.parcel-cache' directory, where Parcel stores its cache files
+.parcel-cache
