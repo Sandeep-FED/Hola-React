@@ -4,7 +4,9 @@
   "description": "This is the starter react project built from scratch",
   "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
