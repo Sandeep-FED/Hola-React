@@ -8,6 +8,7 @@ import {
   ClockArrowUp,
 } from "lucide-react"
 import { data } from "./mockData"
+import { IMAGEURL } from "./constants"
 
 const UserProfile = () => {
   return (
@@ -48,39 +49,40 @@ const HeaderComponent = () => {
   )
 }
 
-const RestaurantCard = ({ data }) => {
-  console.log(data)
+const RestaurantCard = (props) => {
+  console.log(props)
 
-  return data.map((restaurant) => (
+  const { restaurantName, avgRating, restaurantImage, cuisines, deliveryTime } =
+    props
+
+  const imgUrl = `${IMAGEURL}/${restaurantImage}`
+  return (
     <div className='card'>
-      <img
-        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${restaurant.cloudinaryImageId}`}
-        className='restaurant-image'
-      />
+      <img src={imgUrl} className='restaurant-image' />
       <div className='card-content'>
         <p className='restaurant-name'>
-          {restaurant.name.length > 30
-            ? restaurant.name.slice(0, 30) + "..."
-            : restaurant.name}
+          {restaurantName.length > 30
+            ? restaurantName.slice(0, 30) + "..."
+            : restaurantName}
         </p>
         <div className='misc-container'>
           <p className='avg-rating'>
             <Star size={14} />
-            {restaurant.avgRating}
+            {avgRating}
           </p>
           <p className='delivery-time'>
             <ClockArrowUp size={14} />
-            {restaurant?.sla?.slaString}
+            {deliveryTime}
           </p>
         </div>
         <div className='cuisine-container'>
-          {restaurant.cuisines?.map((cuisine) => (
+          {cuisines?.map((cuisine) => (
             <p className='cuisines'>{cuisine}</p>
           ))}
         </div>
       </div>
     </div>
-  ))
+  )
 }
 
 const BodyWrapper = () => {
@@ -95,7 +97,15 @@ const BodyWrapper = () => {
         </button>
       </div>
       <div className='restaurant-container'>
-        <RestaurantCard data={data} />
+        {data.map((restaurant) => (
+          <RestaurantCard
+            restaurantName={restaurant.name}
+            avgRating={restaurant.avgRating}
+            restaurantImage={restaurant.cloudinaryImageId}
+            cuisines={restaurant.cuisines}
+            deliveryTime={restaurant.sla.deliveryTime}
+          />
+        ))}
       </div>
     </div>
   )
