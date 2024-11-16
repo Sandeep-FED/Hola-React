@@ -1,0 +1,31 @@
+{
+  "name": "jsx-intro",
+  "version": "1.0.0",
+  "description": "This is an example for demonstrating the use of JSX",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sandeep-FED/Hola-React.git"
+  },
+  "keywords": [
+    "react",
+    "jsx"
+  ],
+  "author": "Sandeep P S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sandeep-FED/Hola-React/issues"
+  },
+  "homepage": "https://github.com/Sandeep-FED/Hola-React#readme",
+  "devDependencies": {
+    "parcel": "^2.13.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
