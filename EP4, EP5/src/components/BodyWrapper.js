@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react"
-// import { data } from "../api/mockData"
 import { RestaurantCard } from "./RestaurantCards"
 import { TopRatedRestaurantFilter } from "./TopRatedRestaurantFilter"
-import { ShimmerCard } from "./ShimmerCard"
-import { SHIMMER_COUNT } from "../constants/common"
+import { fillShimmerCards } from "../utils/utils"
 
 export const BodyWrapper = () => {
   const [data, setData] = useState([])
@@ -42,19 +40,9 @@ export const BodyWrapper = () => {
     setTitle(restaurantsJson?.data?.cards[1]?.card?.card?.header?.title)
   }
 
-  if (filteredRestaurants.length === 0) {
-    return (
-      <div className='shimmer-container'>
-        {Array(SHIMMER_COUNT)
-          .fill("")
-          .map((e, index) => (
-            <ShimmerCard key={index} />
-          ))}
-      </div>
-    )
-  }
-
-  return (
+  return filteredRestaurants.length === 0 ? (
+    <div className='shimmer-container'>{fillShimmerCards()}</div>
+  ) : (
     <div className='body'>
       <h1>{title}</h1>
       <div className='filters'>
