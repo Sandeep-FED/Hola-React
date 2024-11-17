@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { data } from "../api/mockData"
-import { X } from "lucide-react"
 import { RestaurantCard } from "./RestaurantCards"
+import { TopRatedRestaurantFilter } from "./TopRatedRestaurantFilter"
 
 export const BodyWrapper = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState(data)
@@ -24,10 +24,10 @@ export const BodyWrapper = () => {
           <input type='search' placeholder='Search...' />
         </div>
         <div className='filter-chips'>
-          <div onClick={handleTopRatedRestaurants} className='top-rated-chip'>
-            Top rated restaurants{" "}
-            {filteredRestaurants.length !== data.length && <X size={12} />}
-          </div>
+          <TopRatedRestaurantFilter
+            handleTopRatedRestaurants={handleTopRatedRestaurants}
+            isRestaurantSame={filteredRestaurants.length !== data.length}
+          />
         </div>
       </div>
       <div className='restaurant-container'>
