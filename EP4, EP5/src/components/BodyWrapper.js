@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react"
 import { RestaurantCard } from "./RestaurantCards"
 import { TopRatedRestaurantFilter } from "./TopRatedRestaurantFilter"
 import { ShimmerCard } from "./ShimmerCard"
+import { SHIMMER_COUNT } from "../constants/common"
 
 export const BodyWrapper = () => {
   const [data, setData] = useState([])
   const [filteredRestaurants, setFilteredRestaurants] = useState([])
+  const [title, setTitle] = useState("")
 
   const handleTopRatedRestaurants = () => {
     if (filteredRestaurants.length === data.length) {
@@ -37,14 +39,13 @@ export const BodyWrapper = () => {
       restaurantsJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     )
+    setTitle(restaurantsJson?.data?.cards[1]?.card?.card?.header?.title)
   }
 
   if (filteredRestaurants.length === 0) {
-    let count = 10
-
     return (
       <div className='shimmer-container'>
-        {Array(count)
+        {Array(SHIMMER_COUNT)
           .fill("")
           .map((e, index) => (
             <ShimmerCard key={index} />
@@ -55,6 +56,7 @@ export const BodyWrapper = () => {
 
   return (
     <div className='body'>
+      <h1>{title}</h1>
       <div className='filters'>
         <div className='search-box'>
           <input type='search' placeholder='Search...' />
