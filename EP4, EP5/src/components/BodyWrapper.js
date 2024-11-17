@@ -1,20 +1,56 @@
-import React, { useState } from "react"
-import { data } from "../api/mockData"
+import React, { useEffect, useState } from "react"
+// import { data } from "../api/mockData"
 import { RestaurantCard } from "./RestaurantCards"
 import { TopRatedRestaurantFilter } from "./TopRatedRestaurantFilter"
+import { ShimmerCard } from "./ShimmerCard"
 
 export const BodyWrapper = () => {
-  const [filteredRestaurants, setFilteredRestaurants] = useState(data)
+  const [data, setData] = useState([])
+  const [filteredRestaurants, setFilteredRestaurants] = useState([])
 
   const handleTopRatedRestaurants = () => {
     if (filteredRestaurants.length === data.length) {
       const topRatedRestaurant = filteredRestaurants.filter(
-        (restaurant) => restaurant.avgRating > 4.4
+        (restaurant) => restaurant.info.avgRating > 4.4
       )
       setFilteredRestaurants(topRatedRestaurant)
     } else {
       setFilteredRestaurants(data)
     }
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  // logic for calling swiggy API
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=10.77390&lng=76.64870&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    )
+    const restaurantsJson = await data.json()
+    setData(
+      restaurantsJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    )
+    setFilteredRestaurants(
+      restaurantsJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    )
+  }
+
+  if (filteredRestaurants.length === 0) {
+    let count = 10
+
+    return (
+      <div className='shimmer-container'>
+        {Array(count)
+          .fill("")
+          .map((e, index) => (
+            <ShimmerCard key={index} />
+          ))}
+      </div>
+    )
   }
 
   return (
@@ -33,12 +69,12 @@ export const BodyWrapper = () => {
       <div className='restaurant-container'>
         {filteredRestaurants.map((restaurant) => (
           <RestaurantCard
-            key={restaurant.id}
-            restaurantName={restaurant.name}
-            avgRating={restaurant.avgRating}
-            restaurantImage={restaurant.cloudinaryImageId}
-            cuisines={restaurant.cuisines}
-            deliveryTime={restaurant.sla.deliveryTime}
+            key={restaurant.info.id}
+            restaurantName={restaurant.info.name}
+            avgRating={restaurant.info.avgRating}
+            restaurantImage={restaurant.info.cloudinaryImageId}
+            cuisines={restaurant.info.cuisines}
+            deliveryTime={restaurant.info.sla.deliveryTime}
           />
         ))}
       </div>

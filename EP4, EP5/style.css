@@ -184,3 +184,46 @@ input::placeholder{
 	border-radius: 50px;
 	cursor: pointer;
 }
+.shimmer-card{
+	width: 312px;
+	height: 280px;
+	background-color: #f1f1f1;
+	border-radius: 8px;
+}
+/* Shimmer cards styles */
+.shimmer-restaurant-image{
+	height: 140px;
+	border-radius: 8px;
+	margin-top: 1rem;
+	background:#e5e5e5;
+}
+.shimmer-restaurant-name{
+	background:#e5e5e5;
+	border-radius: 8px;
+	width: 150px;
+	height: 20px;
+}
+.shimmer-misc-container{
+	background:#e5e5e5;
+	border-radius: 8px;
+	width: 150px;
+	height: 20px;
+	margin-top: 0.50rem;
+}
+.shimmer-cuisine-container{
+	display: flex;
+	gap: 0.50rem;
+	flex-wrap: wrap;
+}
+.shimmer-cuisine-container > p{
+	background:#e5e5e5;
+	border-radius: 8px;
+	width: 80px;
+	height: 20px;
+	margin-top: 0.50rem;
+}
+.shimmer-container{
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
