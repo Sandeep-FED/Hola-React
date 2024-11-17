@@ -64,6 +64,7 @@ const AppLayout = () => {
       <HeaderComponent />
       <Filters
         title={title}
+        searchText={searchText}
         handleRestaurantSearch={handleRestaurantSearch}
         handleTopRatedRestaurants={handleTopRatedRestaurants}
         isRestaurantSame={filteredRestaurants.length !== data.length}
