@@ -110,7 +110,8 @@ input::placeholder{
 }
 .card{
 	width: 312px;
-	height: 280px;
+	height: auto;
+	min-height: 280px;
 	background-color: #f3f3f3;
 	border: 1px solid #e0e0e0;
 	border-radius: 8px;
@@ -127,7 +128,7 @@ input::placeholder{
 	object-fit: cover;
 }
 .card-content{
-	padding: 0 0.75rem;
+	padding: 0.75rem;
 	display: flex;
 	flex-direction: column;
 	gap: 0.75rem
