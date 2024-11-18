@@ -226,6 +226,7 @@ input::placeholder{
 	display: flex;
 	gap: 1rem;
 	flex-wrap: wrap;
+	margin: 2rem 0;
 }
 .no-data-found{
 	display: block;
