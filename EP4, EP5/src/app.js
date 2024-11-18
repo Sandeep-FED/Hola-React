@@ -20,7 +20,7 @@ const AppLayout = () => {
     try {
       setIsLoading(true)
       const data = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=10.77390&lng=76.64870&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        "https://swiggy-api-bypass-cors.vercel.app/api/restaurants?lat=28.6139&lng=77.2090"
       )
       const restaurantsJson = await data.json()
       setData(
