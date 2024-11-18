@@ -2,10 +2,10 @@
   "name": "swiggy-clone",
   "version": "1.0.0",
   "description": "This is clone app of swiggy",
-  "main": "app.js",
   "scripts": {
     "test": "jest",
-    "dev": "parcel index.html"
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
