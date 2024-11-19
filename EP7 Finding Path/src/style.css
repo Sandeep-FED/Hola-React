@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
+
+p{
+	margin: 0;
+}
+
+body{
+  font-family: "Host Grotesk", sans-serif;
+}
+*{
+	box-sizing: border-box;
+}
+
+.app{
+	margin:2rem 2rem;
+}
+
+.header{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+}
+.menus{
+	display: flex;
+	gap: 1.25rem;
+	margin-left: auto;
+}
+.menus>ul:hover{
+	text-decoration: underline;
+	font-weight: 600;
+	cursor: pointer;
+}
+.user-profile-container{
+	background-color: #f2f2f2;
+	border-radius:100%;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.75rem;
+}
+.roadLine{
+	position: absolute;
+	width: 90%;
+	height: 1px;
+	background-color: rgb(228, 228, 228);
+	bottom: 0.75rem;
+	left: 2rem;
+}
+.avatar-icon{
+	color:#5f5f5f
+}
+.cart-icon{
+	width: 20px;
+	height: 20px;
+	margin-left: 4rem;
+	margin-right: 2rem;
+}
+
+/* body */
+.body{
+	margin: 2rem 0;
+}
+
+.filters{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+input{
+	height: 35px;
+	width: 250px;
+	border: 1px solid #e8e8e8;
+	border-radius: 50px;
+	position: relative;
+	padding:0 0.75rem;
+}
+input
+.search-box{
+	display: flex;
+	gap: 1rem;
+}
+input:focus-within{
+	outline-color: orange;
+}
+button{
+	border: 1px solid #bfbfbf;
+	border-radius: 8px;
+	padding: 0 1.25rem;
+	cursor: pointer;
+}
+.btn-icon{
+	padding-top: 2px;
+	margin-left: 0.25rem;
+}
+input::placeholder{
+	padding-left: 0.25rem;
+}
+.restaurant-container{
+	width: 100%;
+	margin: 2rem 0;
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+.card{
+	width: 312px;
+	height: auto;
+	min-height: 280px;
+	background-color: #f3f3f3;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+}
+.card:hover{
+	border:1px solid rgb(220, 220, 220);
+	box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+.restaurant-image{
+	width: 100%;
+	height: 140px;
+	padding: 0.75rem;
+	border-radius: 18px;
+	object-fit: cover;
+}
+.card-content{
+	padding: 0.75rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem
+}
+.card-content .restaurant-name{
+	font-weight: 600;
+}
+.card-content .cuisine-container .cuisines{
+	font-size: 0.75rem;
+	font-weight: 300;
+	padding: 0.25rem .25rem;
+	background-color: rgb(230, 230, 230);
+	border: 1px solid #dadada;
+	border-radius: 10px;
+}
+.card-content .cuisine-container{
+	display: flex;
+	gap: 0.25rem;
+	flex-wrap: wrap;
+}
+.card-content .avg-rating, .delivery-time{
+	font-size: 0.75rem;
+	display: flex;
+	gap: 0.50rem;
+	align-items: center;
+}
+.misc-container{
+	display: flex;
+	gap: 1rem;
+}
+.top-rated-chip{
+	background-color: rgb(255, 246, 215);
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px 5px;
+	width: 160px;
+	font-size: 0.75rem;
+}
+.top-rated-chip:hover{
+	box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+.filter-chips{
+	margin-left: auto;
+	margin-right: 0.75rem;
+}
+.filter-icon{
+	padding: 0.25rem 0.75rem;
+}
+.filter-icon:hover{
+	background-color: #dedede;
+	border-radius: 50px;
+	cursor: pointer;
+}
+.shimmer-card{
+	width: 312px;
+	height: 280px;
+	background-color: #f1f1f1;
+	border-radius: 8px;
+}
+/* Shimmer cards styles */
+.shimmer-restaurant-image{
+	height: 140px;
+	border-radius: 8px;
+	margin-top: 1rem;
+	background:#e5e5e5;
+}
+.shimmer-restaurant-name{
+	background:#e5e5e5;
+	border-radius: 8px;
+	width: 150px;
+	height: 20px;
+}
+.shimmer-misc-container{
+	background:#e5e5e5;
+	border-radius: 8px;
+	width: 150px;
+	height: 20px;
+	margin-top: 0.50rem;
+}
+.shimmer-cuisine-container{
+	display: flex;
+	gap: 0.50rem;
+	flex-wrap: wrap;
+}
+.shimmer-cuisine-container > p{
+	background:#e5e5e5;
+	border-radius: 8px;
+	width: 80px;
+	height: 20px;
+	margin-top: 0.50rem;
+}
+.shimmer-container{
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	margin: 2rem 0;
+}
+.no-data-found{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 25%;
+}

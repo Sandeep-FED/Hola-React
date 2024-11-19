@@ -1,0 +1,21 @@
+{
+  "name": "react-router",
+  "version": "1.0.0",
+  "description": "This example project is for react router",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel src/index.html"
+  },
+  "author": "Sandeep P S",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  }
+}
