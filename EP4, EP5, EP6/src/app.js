@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client"
 import { HeaderComponent } from "./components/Header"
 import { BodyWrapper } from "./components/BodyWrapper"
 import { Filters } from "./components/Filters"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { Help } from "./components/Help"
 
 const AppLayout = () => {
   const [data, setData] = useState([])
@@ -77,6 +79,17 @@ const AppLayout = () => {
   )
 }
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+  },
+  {
+    path: "/help",
+    element: <Help />,
+  },
+])
+
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-root.render(<AppLayout />)
+root.render(<RouterProvider router={appRouter} />)
