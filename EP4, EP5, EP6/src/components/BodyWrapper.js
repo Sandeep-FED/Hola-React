@@ -1,6 +1,7 @@
 import React from "react"
 import { RestaurantCard } from "./RestaurantCards"
 import { fillShimmerCards } from "../utils/utils"
+import { Link } from "react-router-dom"
 
 export const BodyWrapper = (props) => {
   const { filteredRestaurants, isLoading } = props
@@ -16,14 +17,16 @@ export const BodyWrapper = (props) => {
     <div className='body'>
       <div className='restaurant-container'>
         {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard
-            key={restaurant.info.id}
-            restaurantName={restaurant.info.name}
-            avgRating={restaurant.info.avgRating}
-            restaurantImage={restaurant.info.cloudinaryImageId}
-            cuisines={restaurant.info.cuisines}
-            deliveryTime={restaurant.info.sla.deliveryTime}
-          />
+          <Link to={"restaurants/" + restaurant.info.id}>
+            <RestaurantCard
+              key={restaurant.info.id}
+              restaurantName={restaurant.info.name}
+              avgRating={restaurant.info.avgRating}
+              restaurantImage={restaurant.info.cloudinaryImageId}
+              cuisines={restaurant.info.cuisines}
+              deliveryTime={restaurant.info.sla.deliveryTime}
+            />
+          </Link>
         ))}
       </div>
     </div>
