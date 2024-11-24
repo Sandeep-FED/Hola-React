@@ -1,0 +1,19 @@
+{
+  "name": "class-components",
+  "version": "1.0.0",
+  "description": "This example showcases the usage and lifecycle of react class components",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html"
+  },
+  "author": "Sandeep P S",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
