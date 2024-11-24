@@ -3,10 +3,10 @@ import { ShimmerCard } from "../components/ShimmerCard"
 import { SHIMMER_COUNT } from "../constants/common"
 import { Vegan, Egg } from "lucide-react"
 
-export const fillShimmerCards = () => {
+export const fillShimmerCards = (type) => {
   return Array(SHIMMER_COUNT)
     .fill("")
-    .map((e, index) => <ShimmerCard key={index} />)
+    .map((e, index) => <ShimmerCard key={index} type={type} />)
 }
 
 export const IsVegOrNonVeg = (isVeg) => {

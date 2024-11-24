@@ -17,9 +17,11 @@ export const BodyWrapper = (props) => {
     <div className='body'>
       <div className='restaurant-container'>
         {filteredRestaurants.map((restaurant) => (
-          <Link to={"restaurants/" + restaurant.info.id}>
+          <Link
+            to={"restaurants/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
             <RestaurantCard
-              key={restaurant.info.id}
               restaurantName={restaurant.info.name}
               avgRating={restaurant.info.avgRating}
               restaurantImage={restaurant.info.cloudinaryImageId}

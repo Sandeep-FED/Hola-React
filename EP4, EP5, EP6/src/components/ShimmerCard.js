@@ -1,7 +1,16 @@
 import React from "react"
 
-export const ShimmerCard = () => {
-  return (
+export const ShimmerCard = (props) => {
+  console.log(props.type)
+  const { type } = props
+  return type === "horizontal" ? (
+    <div className='shimmer-card-horizontal'>
+      <div className='menu-shimmer-card-content'>
+        <div className='menu-shimmer-img-container'></div>
+        <div className='menu-shimmer-info-container'></div>
+      </div>
+    </div>
+  ) : (
     <div className='shimmer-card'>
       <div className='card-content'>
         <div className='shimmer-restaurant-image' />
