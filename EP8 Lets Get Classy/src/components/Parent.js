@@ -11,7 +11,10 @@ export class Parent extends Component {
     }
     console.log("Parent constructor called")
   }
-  componentDidMount() {
+  async componentDidMount() {
+    // this is how you make api calls inside componentDidMount
+    const data = await fetch("https://api.sampleapis.com/beers/ale")
+    console.log(await data.json())
     console.log("Parent component mounted")
   }
 
