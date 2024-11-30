@@ -16,7 +16,10 @@ export class Parent extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("Parent component updated", prevState)
+    // this is how we perform any operations based on state or props change
+    if (this.state.count === 2) {
+      console.log("hiiiiiiiiiiiii")
+    }
   }
 
   render() {
@@ -35,9 +38,9 @@ export class Parent extends Component {
       <>
         <h2>Parent Component</h2>
         <button onClick={handleCounter}>{this.state.count}</button>
-        <ChildA name={"first child"} />
+        {/* <ChildA name={"first child"} />
         <ChildB name={"second child"} />
-        <ChildC name={"third child"} />
+        <ChildC name={"third child"} /> */}
       </>
     )
   }
