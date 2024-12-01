@@ -1,40 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { BodyWrapper } from "./BodyWrapper"
 import { Filters } from "./Filters"
+import { useRestaurants } from "../hooks/useRestaurants"
 
 export const Body = () => {
-  const [data, setData] = useState([])
-  const [filteredRestaurants, setFilteredRestaurants] = useState([])
-  const [title, setTitle] = useState("")
   const [searchText, setSearchText] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    fetchData()
-  }, [])
-
-  // logic for calling swiggy API
-  const fetchData = async () => {
-    try {
-      setIsLoading(true)
-      const data = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=10.77390&lng=76.64870&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      )
-      const restaurantsJson = await data.json()
-      setData(
-        restaurantsJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      )
-      setFilteredRestaurants(
-        restaurantsJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      )
-      setTitle(restaurantsJson?.data?.cards[1]?.card?.card?.header?.title)
-      setIsLoading(false)
-    } catch (error) {
-      console.error("error message", error)
-    }
-  }
+  const { data, title, filteredRestaurants, isLoading } = useRestaurants()
 
   const handleRestaurantSearch = (e) => {
     let searchTerm = e.target.value

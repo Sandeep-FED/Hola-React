@@ -1,37 +1,16 @@
-import React, { useEffect, useState } from "react"
-import { IMAGEURL, MENU_API } from "../constants/common"
+import React from "react"
+import { IMAGEURL } from "../constants/common"
 import { IsVegOrNonVeg } from "../utils/utils"
 import { IndianRupee, Star } from "lucide-react"
 import { truncateText } from "../utils/utils"
 import { useParams } from "react-router-dom"
 import { fillShimmerCards } from "../utils/utils"
+import { useRestaurantMenus } from "../hooks/useRestaurantMenus"
 
 export const RestaurantMenu = () => {
-  const [menuInfo, setMenuInfo] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
-
   const { resId } = useParams()
 
-  useEffect(() => {
-    fetchMenuInfo()
-  }, [])
-
-  const fetchMenuInfo = async () => {
-    try {
-      setIsLoading(true)
-      const response = await fetch(
-        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=10.77390&lng=76.64870&restaurantId=${resId}`
-      )
-      const jsonData = await response.json()
-      setMenuInfo(
-        jsonData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-          ?.card?.card
-      )
-      setIsLoading(false)
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  const { menuInfo, isLoading } = useRestaurantMenus(resId)
 
   return isLoading ? (
     <div className='shimmer-container menu-shimmer'>
