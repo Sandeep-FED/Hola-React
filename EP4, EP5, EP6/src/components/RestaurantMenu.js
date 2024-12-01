@@ -16,7 +16,7 @@ export const RestaurantMenu = () => {
     <div className='shimmer-container menu-shimmer'>
       {fillShimmerCards("horizontal")}
     </div>
-  ) : menuInfo?.itemCards.length === 0 ? (
+  ) : menuInfo?.itemCards?.length === 0 ? (
     <img
       src='https://i.ibb.co/3ShPLmg/not-found.png'
       className='no-data-found'
@@ -76,3 +76,4 @@ export const RestaurantMenu = () => {
     </div>
   )
 }
+export default RestaurantMenu
