@@ -7,15 +7,15 @@ export const BodyWrapper = (props) => {
   const { filteredRestaurants, isLoading } = props
 
   return isLoading ? (
-    <div className='shimmer-container'>{fillShimmerCards()}</div>
+    <div className='flex gap-4'>{fillShimmerCards()}</div>
   ) : filteredRestaurants.length === 0 ? (
     <img
       src='https://i.ibb.co/3ShPLmg/not-found.png'
       className='no-data-found'
     />
   ) : (
-    <div className='body'>
-      <div className='restaurant-container'>
+    <div className='my-8'>
+      <div className='w-full my-8 flex gap-4 flex-wrap'>
         {filteredRestaurants.map((restaurant) => (
           <Link
             to={"restaurants/" + restaurant.info.id}

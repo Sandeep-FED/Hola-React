@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { BodyWrapper } from "./BodyWrapper"
 import { Filters } from "./Filters"
 import { useRestaurants } from "../hooks/useRestaurants"
 
 export const Body = () => {
   const [searchText, setSearchText] = useState("")
-  const { data, title, filteredRestaurants, isLoading } = useRestaurants()
+  const {
+    data,
+    title,
+    filteredRestaurants,
+    isLoading,
+    setFilteredRestaurants,
+  } = useRestaurants()
 
   const handleRestaurantSearch = (e) => {
     let searchTerm = e.target.value
@@ -18,7 +24,7 @@ export const Body = () => {
   }
 
   const handleTopRatedRestaurants = () => {
-    if (filteredRestaurants.length === data.length) {
+    if (filteredRestaurants?.length === data?.length) {
       const topRatedRestaurant = filteredRestaurants.filter(
         (restaurant) => restaurant.info.avgRating > 4.4
       )

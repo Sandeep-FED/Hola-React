@@ -33,5 +33,5 @@ export const useRestaurants = () => {
     }
   }
 
-  return { data, title, filteredRestaurants, isLoading }
+  return { data, title, filteredRestaurants, isLoading, setFilteredRestaurants }
 }
