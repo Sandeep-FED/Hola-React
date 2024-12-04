@@ -19,6 +19,7 @@ const AppLayout = () => {
         <img
           src={require("../src/images/undraw_server_down_s4lk.png")}
           alt='Network issue image illustration'
+          width={450}
         />
       </div>
     )

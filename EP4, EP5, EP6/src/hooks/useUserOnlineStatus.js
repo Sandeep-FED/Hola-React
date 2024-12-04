@@ -10,6 +10,11 @@ export const useUserOnlineStatus = () => {
     window.addEventListener("online", () => {
       setIsOnline(true)
     })
+
+    return () => {
+      window.removeEventListener("online", setIsOnline(true))
+      window.removeEventListener("offline", setIsOnline(false))
+    }
   }, [])
 
   return isOnline
