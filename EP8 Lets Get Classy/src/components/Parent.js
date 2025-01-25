@@ -16,6 +16,10 @@ export class Parent extends Component {
     const data = await fetch("https://api.sampleapis.com/beers/ale")
     console.log(await data.json())
     console.log("Parent component mounted")
+
+    setInterval(() => {
+      console.log('welcome')
+    }, 1000)
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -23,6 +27,11 @@ export class Parent extends Component {
     if (this.state.count === 2) {
       console.log("hiiiiiiiiiiiii")
     }
+  }
+
+  componentWillUnmount() {
+    // this is how we clear any memory leaks
+    clearInterval()
   }
 
   render() {
@@ -41,9 +50,9 @@ export class Parent extends Component {
       <>
         <h2>Parent Component</h2>
         <button onClick={handleCounter}>{this.state.count}</button>
-        {/* <ChildA name={"first child"} />
+        <ChildA name={"first child"} />
         <ChildB name={"second child"} />
-        <ChildC name={"third child"} /> */}
+        <ChildC name={"third child"} />
       </>
     )
   }
