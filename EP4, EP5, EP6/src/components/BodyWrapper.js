@@ -6,13 +6,21 @@ import { Link } from "react-router-dom"
 export const BodyWrapper = (props) => {
   const { filteredRestaurants, isLoading } = props
 
+  console.log("filteredRestaurants", filteredRestaurants)
+
   return isLoading ? (
     <div className='flex gap-4'>{fillShimmerCards()}</div>
   ) : filteredRestaurants.length === 0 ? (
-    <img
-      src='https://i.ibb.co/3ShPLmg/not-found.png'
-      className='no-data-found'
-    />
+    <div className='flex flex-col items-center'>
+      <img
+        src='https://i.ibb.co/3ShPLmg/not-found.png'
+        className='ml-auto mr-auto'
+        width={400}
+      />
+      <p className='text-2xl mt-4 text-zinc-500'>
+        Oops! No restaurants found :(
+      </p>
+    </div>
   ) : (
     <div className='my-8'>
       <div className='w-full my-8 flex gap-4 flex-wrap'>

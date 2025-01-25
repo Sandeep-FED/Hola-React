@@ -17,7 +17,7 @@ export const RestaurantMenu = () => {
   ) : menuInfo?.itemCards?.length === 0 ? (
     <img
       src='https://i.ibb.co/3ShPLmg/not-found.png'
-      className='block ml-auto mr-auto w-1/4'
+      className='block m-auto w-1/4'
     />
   ) : (
     <div className='mx-auto w-[750px] my-8'>
@@ -35,6 +35,7 @@ export const RestaurantMenu = () => {
           >
             <div className='flex gap-4 p-3 '>
               <img
+                loading='lazy'
                 src={
                   item?.card?.info?.imageId
                     ? IMAGEURL + "/" + item?.card?.info?.imageId

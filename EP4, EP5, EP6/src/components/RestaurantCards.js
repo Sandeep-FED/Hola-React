@@ -11,6 +11,7 @@ export const RestaurantCard = (props) => {
     <div className='w-[312px] h-full min-h-[280px] bg-stone-100 border border-slate-300 rounded-lg hover:border-slate-400 hover:shadow-slate-400 hover:shadow-[0px 10px 15px -3px rgba(0, 0, 0, 0.1)]'>
       <img
         src={imgUrl}
+        loading='lazy'
         className='w-full h-[140px] p-3 rounded-2xl object-cover font-semibold'
       />
       <div className='p-3 flex flex-col gap-3'>

@@ -229,9 +229,3 @@ input::placeholder{
 	flex-wrap: wrap;
 	margin: 2rem 0;
 }
-.no-data-found{
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 25%;
-}
