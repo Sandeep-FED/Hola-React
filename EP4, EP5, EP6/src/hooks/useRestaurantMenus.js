@@ -15,10 +15,19 @@ export const useRestaurantMenus = (resId) => {
         `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=10.77390&lng=76.64870&restaurantId=${resId}`
       )
       const jsonData = await response.json()
-      setMenuInfo(
-        jsonData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-          ?.card?.card
-      )
+
+      // filter our item category
+      const filteredItemCategories =
+        jsonData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
+          (item) => {
+            return (
+              item?.card?.card?.["@type"] ===
+              "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+            )
+          }
+        )
+
+      setMenuInfo(filteredItemCategories)
       setIsLoading(false)
     } catch (error) {
       console.error(error)
