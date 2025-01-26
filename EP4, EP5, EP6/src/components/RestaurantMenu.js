@@ -3,10 +3,11 @@ import React from "react"
 import { useParams } from "react-router-dom"
 import { fillShimmerCards } from "../utils/utils"
 import { useRestaurantMenus } from "../hooks/useRestaurantMenus"
-import { CategoryAccordion } from "./CategoryAccordion"
+import { RestaurantMenuCategory } from "./RestaurantMenuCategory"
 
 export const RestaurantMenu = () => {
   const { resId } = useParams()
+  const [selectedIndex, setSelectedIndex] = React.useState(0)
 
   const { menuInfo, isLoading } = useRestaurantMenus(resId)
   console.log(menuInfo)
@@ -21,8 +22,15 @@ export const RestaurantMenu = () => {
   ) : (
     <div className='mx-auto w-[750px] my-8'>
       <div className='grid gap-4 mt-6'>
-        {menuInfo?.map((category) => (
-          <CategoryAccordion item={category?.card?.card} />
+        {menuInfo?.map((category, index) => (
+          <RestaurantMenuCategory
+            item={category?.card?.card}
+            key={category?.card?.card?.title}
+            showRestaurantMenuItems={index === selectedIndex ? true : false}
+            handleSelectedIndex={() => {
+              setSelectedIndex(index === selectedIndex ? null : index)
+            }}
+          />
         ))}
       </div>
     </div>

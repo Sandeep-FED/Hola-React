@@ -2,20 +2,17 @@ import React from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
 import { AccordionItemList } from "./AccordionItemList"
 
-export const CategoryAccordion = ({ item }) => {
-  const [showRestaurantMenuItems, setShowRestaurantMenuItems] =
-    React.useState(true)
-
-  const handleAccordionToggle = () => {
-    setShowRestaurantMenuItems(!showRestaurantMenuItems)
-  }
-
+export const RestaurantMenuCategory = ({
+  item,
+  showRestaurantMenuItems,
+  handleSelectedIndex,
+}) => {
   return (
     <div className='flex flex-col gap-4'>
       {/* Header with accordion */}
       <div
         className='flex items-center justify-between cursor-pointer'
-        onClick={handleAccordionToggle}
+        onClick={handleSelectedIndex}
       >
         <h1 className='text-xl font-semibold text-slate-600'>
           {item?.title}{" "}
@@ -30,7 +27,9 @@ export const CategoryAccordion = ({ item }) => {
 
       {/* Accordion Body */}
       {showRestaurantMenuItems &&
-        item?.itemCards?.map((item) => <AccordionItemList itemList={item} />)}
+        item?.itemCards?.map((item, index) => (
+          <AccordionItemList itemList={item} key={index} />
+        ))}
     </div>
   )
 }
