@@ -1,5 +1,5 @@
 import React from "react"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, ChevronUp } from "lucide-react"
 import { AccordionItemList } from "./AccordionItemList"
 
 export const CategoryAccordion = ({ item }) => {
@@ -21,7 +21,11 @@ export const CategoryAccordion = ({ item }) => {
           {item?.title}{" "}
           {item?.itemCards?.length !== 0 && <>({item?.itemCards?.length})</>}
         </h1>
-        <ChevronDown size={28} className='text-slate-600' />
+        {!showRestaurantMenuItems ? (
+          <ChevronDown size={28} className='text-slate-600' />
+        ) : (
+          <ChevronUp size={28} className='text-slate-600' />
+        )}
       </div>
 
       {/* Accordion Body */}
