@@ -23,7 +23,7 @@ export const AccordionItemList = ({ itemList }) => {
               }
               className='rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out bg-inherit w-full h-full object-cover'
             />
-            <AddToCart />
+            <AddToCart item={itemList} />
           </div>
 
           <div className='flex flex-col gap-4 px-3'>
