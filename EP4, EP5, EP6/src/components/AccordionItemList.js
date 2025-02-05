@@ -14,7 +14,7 @@ export const AccordionItemList = ({ itemList }) => {
         className='w-full overflow-hidden border-b'
         key={itemList?.card?.info?.id}
       >
-        <div className='flex p-3'>
+        <div className='flex py-5'>
           <div className='relative w-[160px] h-[160px] flex-shrink-0'>
             <img
               loading='lazy'

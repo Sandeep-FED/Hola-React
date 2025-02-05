@@ -27,7 +27,7 @@ export const AddToCart = ({ item }) => {
   }, [cartItems, item])
 
   return (
-    <div className='flex gap-2 bg-gray-100 rounded-lg absolute justify-center items-center -bottom-3 h-8 left-7'>
+    <div className='flex gap-2 bg-gray-100 rounded-lg absolute justify-center items-center -bottom-3 h-8 left-7 shadow-md'>
       <button
         className=' text-black px-4 py-1 rounded-md border-none hover:shadow-sm hover:bg-gray-200'
         onClick={handleRemoveFromCart}
