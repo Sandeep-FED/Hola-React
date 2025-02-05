@@ -8,6 +8,8 @@ import { AboutClass } from "./components/AboutClass"
 import "../style.css"
 import { useUserOnlineStatus } from "./hooks/useUserOnlineStatus"
 import { UserContext } from "./utils/UserContext"
+import { Provider } from "react-redux"
+import { appStore } from "./utils/appStore"
 
 const AppLayout = () => {
   const isOnline = useUserOnlineStatus()
@@ -26,12 +28,14 @@ const AppLayout = () => {
     )
 
   return (
-    <UserContext.Provider value={{ userName: userName, setUserName }}>
-      <div className='app'>
-        <HeaderComponent />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ userName: userName, setUserName }}>
+        <div className='app'>
+          <HeaderComponent />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   )
 }
 
