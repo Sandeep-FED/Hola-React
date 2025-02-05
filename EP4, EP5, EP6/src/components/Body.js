@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { BodyWrapper } from "./BodyWrapper"
 import { Filters } from "./Filters"
 import { useRestaurants } from "../hooks/useRestaurants"
+import { UserContext } from "../utils/UserContext"
 
 export const Body = () => {
   const [searchText, setSearchText] = useState("")
@@ -34,8 +35,12 @@ export const Body = () => {
     }
   }
 
+  const { userName, setUserName } = useContext(UserContext)
+
   return (
     <>
+      <p>{userName}</p>
+      <button onClick={() => setUserName("Jane Doe")}>Change User</button>
       <Filters
         title={title}
         searchText={searchText}

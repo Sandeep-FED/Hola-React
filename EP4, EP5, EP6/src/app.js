@@ -1,16 +1,17 @@
-import React, { lazy, Suspense } from "react"
+import React, { lazy, Suspense, useState } from "react"
 import ReactDOM from "react-dom/client"
 import { HeaderComponent } from "./components/Header"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 import { Help } from "./components/Help"
 import { Body } from "./components/Body"
-import { About } from "./components/About"
 import { AboutClass } from "./components/AboutClass"
 import "../style.css"
 import { useUserOnlineStatus } from "./hooks/useUserOnlineStatus"
+import { UserContext } from "./utils/UserContext"
 
 const AppLayout = () => {
   const isOnline = useUserOnlineStatus()
+  const [userName, setUserName] = useState("Peter")
 
   if (!isOnline)
     return (
@@ -25,10 +26,12 @@ const AppLayout = () => {
     )
 
   return (
-    <div className='app'>
-      <HeaderComponent />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ userName: userName, setUserName }}>
+      <div className='app'>
+        <HeaderComponent />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   )
 }
 
