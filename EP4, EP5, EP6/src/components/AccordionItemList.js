@@ -3,26 +3,28 @@ import { IsVegOrNonVeg } from "../utils/utils"
 import { IMAGEURL } from "../constants/common"
 import { IndianRupee, Star } from "lucide-react"
 import { truncateText } from "../utils/utils"
+import { AddToCart } from "./AddToCart"
 
 export const AccordionItemList = ({ itemList }) => {
   return (
     <>
       <div
-        className='w-full border border-gray-400 rounded-md  hover:shadow-lg overflow-hidden'
+        className='w-full overflow-hidden border-b'
         key={itemList?.card?.info?.id}
       >
-        <div className='flex gap-4 p-3 '>
-          <img
-            loading='lazy'
-            src={
-              itemList?.card?.info?.imageId
-                ? IMAGEURL + "/" + itemList?.card?.info?.imageId
-                : "https://play-lh.googleusercontent.com/JA0qswBq-iSo5HbTZyyqAEYEdQ-9JjmkNqxyCqAndO8JzHwKnRSzcGrKdhrshDxw4w"
-            }
-            className='rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out'
-            width={200}
-            height={400}
-          />
+        <div className='flex p-3'>
+          <div className='relative w-[160px] h-[160px] flex-shrink-0'>
+            <img
+              loading='lazy'
+              src={
+                itemList?.card?.info?.imageId
+                  ? IMAGEURL + "/" + itemList?.card?.info?.imageId
+                  : "https://play-lh.googleusercontent.com/JA0qswBq-iSo5HbTZyyqAEYEdQ-9JjmkNqxyCqAndO8JzHwKnRSzcGrKdhrshDxw4w"
+              }
+              className='rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out bg-inherit w-full h-full object-cover'
+            />
+            <AddToCart />
+          </div>
 
           <div className='flex flex-col gap-4 px-3'>
             <div className='flex gap-2 items-center h-min'>
