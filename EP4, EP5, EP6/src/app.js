@@ -10,6 +10,7 @@ import { useUserOnlineStatus } from "./hooks/useUserOnlineStatus"
 import { UserContext } from "./utils/UserContext"
 import { Provider } from "react-redux"
 import { appStore } from "./utils/appStore"
+import { CartPage } from "./components/Cart"
 
 const AppLayout = () => {
   const isOnline = useUserOnlineStatus()
@@ -57,6 +58,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <AboutClass name={"hello"} />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
       {
         path: "/restaurants/:resId",

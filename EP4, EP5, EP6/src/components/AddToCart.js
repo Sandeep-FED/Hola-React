@@ -17,9 +17,11 @@ export const AddToCart = ({ item }) => {
   }
 
   useEffect(() => {
-    const cartItemCount = cartItems.filter(
-      (cartItem) => cartItem.card.info.id === item.card.info.id
-    ).length
+    const cartItemCount =
+      cartItems &&
+      cartItems.filter(
+        (cartItem) => cartItem.card.info.id === item?.card?.info.id
+      ).length
 
     setItemCount(cartItemCount)
   }, [cartItems, item])
