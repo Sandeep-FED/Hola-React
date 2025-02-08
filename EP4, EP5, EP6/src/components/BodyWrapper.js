@@ -6,10 +6,9 @@ import { Link } from "react-router-dom"
 export const BodyWrapper = (props) => {
   const { filteredRestaurants, isLoading } = props
 
-  console.log("filteredRestaurants", filteredRestaurants)
 
   return isLoading ? (
-    <div className='flex gap-4'>{fillShimmerCards()}</div>
+    <div className='flex gap-4 flex-wrap'>{fillShimmerCards("horizontal")}</div>
   ) : filteredRestaurants.length === 0 ? (
     <div className='flex flex-col items-center'>
       <img

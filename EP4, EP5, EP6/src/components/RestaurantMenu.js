@@ -13,7 +13,7 @@ export const RestaurantMenu = () => {
   console.log(menuInfo)
 
   return isLoading ? (
-    <div className='flex gap-4'>{fillShimmerCards("horizontal")}</div>
+    <div className='block m-auto w-[750px]'>{fillShimmerCards("vertical")}</div>
   ) : menuInfo?.itemCards?.length === 0 ? (
     <img
       src='https://i.ibb.co/3ShPLmg/not-found.png'

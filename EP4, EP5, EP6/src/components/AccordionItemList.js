@@ -7,7 +7,6 @@ import { AddToCart } from "./AddToCart"
 
 export const AccordionItemList = ({ itemList }) => {
 
-  console.log("itemList", itemList)
   return (
     <>
       <div
